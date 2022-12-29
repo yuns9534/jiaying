@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {border: 1px solid red;}
+        div {height: 300px;}
+        #item {background-color: salmon;}
+        #item.animated {background-color: aqua;}
+    </style>
+</head>
+<body>
+    <div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div id="item">
+
+
+
+		$(this).position().top : <span id="obj1_top"></span> <br>
+
+		$(this).outerHeight() : <span id="obj1_height"></span> <br>
+
+		object : <span id="obj1"></span> <br>
+
+
+
+		$(window).scrollTop() : <span id="obj2_top"></span> <br>
+
+		$(window).height() : <span id="obj2_height"></span> <br>
+
+		win : <span id="win1"></span> <br>
+
+
+
+		
+
+	</div>
+    <div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<div></div>
+
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	<script>
+
+
+
+		$(function(){
+
+
+
+			$(window).scroll(function(){
+
+
+
+				$('#item').each(function(i){
+
+
+
+					var bottom_of_object = $(this).position().top + $(this).outerHeight(); //outerHeight() : border를 포함한 높이
+
+					var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+//scrollTop : 스크롤되어 올라가있는 만큼의 높이 , $(window).height() : 브라우저 창높이
+
+
+
+					$('#obj1_top').text($(this).position().top);
+
+					$('#obj1_height').text($(this).outerHeight());
+
+					$('#obj1').text(bottom_of_object);
+
+
+
+					$('#obj2_top').text($(window).scrollTop());
+
+					$('#obj2_height').text($(window).height());
+
+					$('#win1').text(bottom_of_window);
+
+
+
+					//오브젝트가 윈도우에 완전히 보이면
+
+					if( bottom_of_window > bottom_of_object + 300){
+
+
+
+						$('#item').addClass('animated');
+
+					}
+
+
+
+
+
+				});
+
+			});
+
+
+
+
+
+
+
+
+
+		});
+
+	</script>
+</body>
+</html>
